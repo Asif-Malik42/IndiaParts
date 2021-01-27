@@ -1,5 +1,4 @@
 // Tab View inside Navigation Drawer
-// https://aboutreact.com/tab-view-inside-navigation-drawer-sidebar-with-react-navigation/
 
 import 'react-native-gesture-handler';
 
