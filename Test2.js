@@ -5,10 +5,8 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import {View, TouchableOpacity, Image} from 'react-native';
 
-import {
-  NavigationContainer,
-  getFocusedRouteNameFromRoute,
-} from '@react-navigation/native';
+import {NavigationContainer, getFocusedRouteNameFromRoute,} from '@react-navigation/native';
+
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -28,18 +26,16 @@ const NavigationDrawerStructure = (props) => {
     props.navigationProps.toggleDrawer();
   }
   return (
-    <View style={{flexDirection: 'row'}}>
+   
       <TouchableOpacity onPress={() => toggleDrawer()}>
-        {/*Donute Button Image */}
-        <Image
-          source={{
-            uri:
-              'https://raw.githubusercontent.com/AboutReact/sampleresource/master/drawerWhite.png',
-          }}
-          style={{width: 25, height: 25, marginLeft: 10}}
-        />
+        <View style={{flexDirection:'column',justifyContent: 'space-between',width: 25, height: 20, marginLeft: 15}}>
+          <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+          <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+          <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+        </View>
+          
+        
       </TouchableOpacity>
-    </View>
   )
 }
 
@@ -60,17 +56,18 @@ const TabStack = () => {
     <Tab.Navigator
       initialRouteName="HomeScreen"
       tabBarOptions={{
-        activeTintColor: '#FFFFFF',
-        inactiveTintColor: '#F8F8F8',
+        activeTintColor: 'darkgrey',
+        inactiveTintColor: 'darkgrey',
         style: {
-          backgroundColor: '#f4511e',
+          backgroundColor: 'white',
         },
         labelStyle: {
           textAlign: 'center',
+          fontSize: 15,
         },
         indicatorStyle: {
-          borderBottomColor: '#87B56A',
-          borderBottomWidth: 2,
+          borderBottomColor: 'darkblue',
+          borderBottomWidth: 1,
         },
       }}>
       <Tab.Screen
@@ -92,13 +89,6 @@ const TabStack = () => {
         component={ExploreScreen}
         options={{
           tabBarLabel: 'Keyword',
-          /*tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-             name="settings"
-             color={color}
-             size={size}
-            />
-          ),*/
         }}
       />
     </Tab.Navigator>
@@ -119,9 +109,9 @@ const HomeScreenStack = ({navigation}) => {
             />
           ),
           headerStyle: {
-            backgroundColor: '#f4511e', //Set Header color
+            backgroundColor: 'lightblue', //Set Header color
           },
-          headerTintColor: '#fff', //Set Header text color
+          headerTintColor: 'darkblue', //Set Header text color
           headerTitleStyle: {
             fontWeight: 'bold', //Set Header text style
           },
