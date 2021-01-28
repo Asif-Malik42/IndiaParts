@@ -21,29 +21,173 @@ import { CustomPicker } from 'react-native-custom-picker'
  
 const carMakerNames = [
   {
-    makerName: 'Ashok Leyland',
     index: '0',
+    makerName: 'Ashok Leyland',
     models: [
       {
-        modelName: 'Dost',
-        index: '0',
+        index: '0', 
+        modelName: 'Dost', 
         variants: [
-          {
-            variantName: 'Diesel',
-            index:'0',
-            modifications: ['1.5L']
-          }
+          {index:'0', variantName: 'Diesel', modifications: ['1.5L']},
+        ]
+      },
+      {
+        index: '1', 
+        modelName: 'Stile', 
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['1.5L']},
+        ]
+      },
+    ]
+  },
+  {
+    index: '1',
+    makerName: 'Audi',
+    models: [
+      { 
+        index: '0',
+        modelName: 'A3', 
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.4L','1.8']},
+        ]
+      },
+      {
+        index: '1',
+        modelName: 'A3 (8P7)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['1.6L Tdi','1.9L Tdi','2.0L Tdi']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.2L Tfsi','1.4 Tfsi','1.6L','1.8L Tfsi','2.0L Tfsi']},
+        ]
+      },
+      {
+        index: '2',
+        modelName: 'A3 (8V7)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['1.6 Tdi','2.0 Tdi']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.4 Tfsi','1.8 Tfsi','1.8 Tfsi Quattro']},
+        ]
+      },
+      {
+        index: '3',
+        modelName: 'A3 Cabriolet',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['1.4L','1.8L']}
+        ]
+      },
+      {
+        index: '4',
+        modelName: 'A4 (8E2, B6)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['1.9L Tdi','2.5L','2.5L Tdi']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.8L/T','2.0L','2.4L','3.0 Quadro','3.0L']},
+        ]
+      },
+      {
+        index: '5',
+        modelName: 'A4 (8EC, B7)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['1.9 Tdi','2.0L Tdi','2.5 Tdi','3.0 Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.6L','1.8L T Quattro','2.0 Tfsi Quattro','2.0L','3.0 Quattro']},
+        ]
+      },
+      {
+        index: '6',
+        modelName: 'A4 (8W, B9)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['1.4L Tfsi']},
+        ]
+      },
+      {
+        index: '7',
+        modelName: 'A4 (8k2, B8)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0 Tdi Quattro','2.0L Tdi','2.7L Tdi','3.0L Tdi','3.0L Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['2.0L Tfsi','2.0L Tfsi Quattro','3.0L Tfsi Quattro','3.2 Fsi Quattro']},
+        ]
+      },
+      {
+        index: '8',
+        modelName: 'A5',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L']},
         ]
       }
     ]
   },
   {
-    makerName: 'Audi',
-    value: 2
-  },
-  {
+    index: '2',
     makerName: 'BMW',
-    value: 3
+    models: [
+      { 
+        index: '0',
+        modelName: '1 (F20)', 
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['118d 2.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['116i 1.6L']},
+        ]
+      },
+      {
+        index: '1',
+        modelName: '3 (E90)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['320d 2.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['320i 2.0L','325i 2.5L','330i 3.0L']},
+        ]
+      },
+      {
+        index: '2',
+        modelName: '3 (F30)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['320d 2.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['320i 2.0L','328i 2.0L']},
+        ]
+      },
+      {
+        index: '3',
+        modelName: '3 (F80 M3)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['M3 3.0L']}
+        ]
+      },
+      {
+        index: '4',
+        modelName: '3GT (F34)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['320d 2.0L']},
+        ]
+      },
+      {
+        index: '5',
+        modelName: '4 (F82)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['M4 3.0L']},
+        ]
+      },
+      {
+        index: '6',
+        modelName: '5 (E60)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['520d 2.0L','525d 3.0L','530d 3.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['523i 2.5L','525i 2.5L','530 3.0L']},
+        ]
+      },
+      {
+        index: '7',
+        modelName: '5 (F10)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['520d 3.0L','525d 2.0L','525d 3.0L','530d 3.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['520i 2.0L','523i 2.5L','M5 4.4L']},
+        ]
+      },
+      {
+        index: '8',
+        modelName: '5GT (F07)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['530d 3.0L']},
+        ]
+      }
+    ]    
   },
   {
     makerName: 'Chevrolet',
@@ -145,6 +289,7 @@ export default class HomeScreen extends React.Component {
             <CustomPicker
               placeholder={'Car Maker'}
               options={carMakerNames}
+              modalAnimationType = 'slide'
               getLabel={item => {selectedCarInitialState.makerNameIndex = item.index; return item.makerName}}
               //onValueChange = {(item)=>setSelectedCar({...SelectedCar,makerName: item.label})}
               fieldTemplate={this.renderField}
@@ -157,8 +302,9 @@ export default class HomeScreen extends React.Component {
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
             <CustomPicker
               placeholder={'Model'}
-              options={carMakerNames[0].models}
-                getLabel={item => item.modelName}            fieldTemplate={this.renderField}
+              options={carMakerNames[1].models}
+              getLabel={item => item.modelName}            
+              fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
               headerTemplate={this.renderHeader}
             />
@@ -168,8 +314,8 @@ export default class HomeScreen extends React.Component {
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
             <CustomPicker
               placeholder={'Variant'}
-              options={carMakerNames}
-              getLabel={item => item.makerName}
+              options={carMakerNames[1].models[1].variants}
+              getLabel={item => item.variantName}
               fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
               headerTemplate={this.renderHeader}
@@ -180,8 +326,8 @@ export default class HomeScreen extends React.Component {
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
             <CustomPicker
               placeholder={'Modification'}
-              options={carMakerNames}
-              getLabel={item => item.makerName}
+              options={carMakerNames[1].models[1].variants[1].modifications}
+              getLabel={item => item}
               fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
               headerTemplate={this.renderHeader}
