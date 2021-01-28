@@ -15,223 +15,251 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen;
 */
 import * as React from 'react';
-import {
-  View,
-  Text, 
-  Button, 
-  Alert,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { useState } from 'react';
+import {View, Text, Button, Alert, StyleSheet, TouchableOpacity, } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker'
  
-  export default class HomeScreen extends React.Component {
-  render() {
-    // Make these entries an array of names rather than array of objects.
-  const carMakerNames = [
-    {
-      label: 'Ashok Leyland',
-      value: 1
-    },
-    {
-      label: 'Audi',
-      value: 2
-    },
-    {
-      label: 'BMW',
-      value: 3
-    },
-    {
-      label: 'Chevrolet',
-      value: 4
-    },
-    {
-      label: 'Datsun',
-      value: 5
-    },
-    {
-      label: 'Daweoo',
-      value: 6
-    },
-    {
-      label: 'Fiat',
-      value: 7
-    },
-    {
-      label: 'Ford',
-      value: 8
-    },
-    {
-      label: 'Honda',
-      value: 9
-    },
-    {
-      label: 'Hyundai',
-      value: 10
-    },
-    {
-      label: 'Isuzu',
-      value: 11
-    },
-    {
-      label: 'Mahindra',
-      value: 12
-    },
-    {
-      label: 'Maruti Suzuki',
-      value: 13
-    },
-    {
-      label: 'Mercedes Benz',
-      value: 14
-    },
-    {
-      label: 'Nissan',
-      value: 15
-    },
-    {
-      label: 'Renault',
-      value: 16
-    },
-    {
-      label: 'Skoda',
-      value: 17
-    },
-    {
-      label: 'Tata',
-      value: 18
-    },
-    {
-      label: 'Toyota',
-      value: 19
-    },
-    {
-      label: 'Vokswagon',
-      value: 20
-    },
-    {
-      label: 'Volvo',
-      value: 21
-    }
-  ]
+const carMakerNames = [
+  {
+    makerName: 'Ashok Leyland',
+    index: '0',
+    models: [
+      {
+        modelName: 'Dost',
+        index: '0',
+        variants: [
+          {
+            variantName: 'Diesel',
+            index:'0',
+            modifications: ['1.5L']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    makerName: 'Audi',
+    value: 2
+  },
+  {
+    makerName: 'BMW',
+    value: 3
+  },
+  {
+    makerName: 'Chevrolet',
+    value: 4
+  },
+  {
+    makerName: 'Datsun',
+    value: 5
+  },
+  {
+    makerName: 'Daweoo',
+    value: 6
+  },
+  {
+    makerName: 'Fiat',
+    value: 7
+  },
+  {
+    makerName: 'Ford',
+    value: 8
+  },
+  {
+    makerName: 'Honda',
+    value: 9
+  },
+  {
+    makerName: 'Hyundai',
+    value: 10
+  },
+  {
+    makerName: 'Isuzu',
+    value: 11
+  },
+  {
+    makerName: 'Mahindra',
+    value: 12
+  },
+  {
+    makerName: 'Maruti Suzuki',
+    value: 13
+  },
+  {
+    makerName: 'Mercedes Benz',
+    value: 14
+  },
+  {
+    makerName: 'Nissan',
+    value: 15
+  },
+  {
+    makerName: 'Renault',
+    value: 16
+  },
+  {
+    makerName: 'Skoda',
+    value: 17
+  },
+  {
+    makerName: 'Tata',
+    value: 18
+  },
+  {
+    makerName: 'Toyota',
+    value: 19
+  },
+  {
+    makerName: 'Vokswagon',
+    value: 20
+  },
+  {
+    makerName: 'Volvo',
+    value: 21
+  }
+]
+
+const selectedCarInitialState = {
+  makerName: '',
+  makerNameIndex: '',
+  model: '',
+  variant: '',
+  modification: '',
+}
+
+export default class HomeScreen extends React.Component {
+  render(){
+    
+    //const [selectedCar,setSelectedCar] = useState(selectedCarInitialState);
+
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.mainSubContainer}>
-          <View style={{flex: 1, width: '100%', }}>
-            <View style={styles.headerContainer}>
-              <Text style = {{fontSize: 18, paddingLeft:10, color:'grey'}} >Search spare parts by car</Text>
-            </View>  
-          </View>
-          <View style={styles.searchFieldContainer}>
-            {
-              /*
-              I initially thought of making a component for picker
-              But there were some errors so sticking to this way for now!!
-
-              :::attempt:::
-              <CarSelection name ='Select the Car Maker'/>
-              */
-            }
-            <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
-              <CustomPicker
-                placeholder={'Select the Car Maker'}
-                options={carMakerNames}
-                getLabel={item => item.label}
-                fieldTemplate={this.renderField}
-                optionTemplate={this.renderOption}
-                headerTemplate={this.renderHeader}
-                //itemStyle={{width:100}}
-                // footerTemplate={this.renderFooter}
-                //onValueChange={value => {
-                //Alert.alert('Selected Item', value ? JSON.stringify(value) : 'No item were selected!')
-                //}}
-              />
-            </View> 
+      <View style={styles.mainSubContainer}>
+        <View style={{flex: 1, width: '100%', }}>
+          <View style={styles.headerContainer}>
+            <Text style = {{fontSize: 18, paddingLeft:10, color:'grey'}} >Search spare parts by car</Text>
           </View>  
-          <View style={styles.searchFieldContainer}>
-
-          </View>
-          <View style={styles.searchFieldContainer}>
-
-          </View>
-          <View style={styles.searchFieldContainer}>
-
-          </View>
-          <View style={styles.searchButtonContainer}>
-            <Button
-              title = "search"
-             // color = 'black'
-              onPress = {()=>{Alert.alert('Please Confirm!!')}}
-              titleProps ={{fontWeight:'bold',fontSize:20}}
-              type = 'clear'
-              raised = {true}
-            />     
-          </View>    
         </View>
-      </View>
-    )
-  }
-  renderHeader() {
-    return (
-      <View style={styles.headerFooterContainer}>
-        <Text style={{fontSize: 23, fontWeight: 'bold',}}>Select Car Maker</Text>
-      </View>
-    )
-  }
-  renderFooter(action) {
-    return (
-      <TouchableOpacity
-        style={styles.headerFooterContainer}
-        onPress={() => {
-          Alert.alert('Footer', "You've click the footer!", [
-            {
-              text: 'OK'
-            },
-            {
-              text: 'Close Dropdown',
-              onPress: action.close.bind(this)
-            }
-          ])
-        }}
-      >
-        <Text>This is footer, click me!</Text>
-      </TouchableOpacity>
-    )
-  }
- 
-  renderField(settings) {
-    const { selectedItem, defaultText, getLabel, clear } = settings
-    return (
-      <View >
-        <View>
-          {!selectedItem && <Text style={{fontSize: 18, color: 'grey',marginLeft: 10}}>{defaultText}</Text>}
-          {selectedItem && (
-            <View style={styles.innerContainer}>
-              <TouchableOpacity style={styles.clearButton} onPress={clear}>
-                <Text style={{ color: '#fff' }}>Clear</Text>
-              </TouchableOpacity>
-              <Text style={styles.text}>
-                {getLabel(selectedItem)}
-              </Text>
-            </View>
-          )}
+        <View style={styles.searchFieldContainer}>
+          <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+            <CustomPicker
+              placeholder={'Car Maker'}
+              options={carMakerNames}
+              getLabel={item => {selectedCarInitialState.makerNameIndex = item.index; return item.makerName}}
+              //onValueChange = {(item)=>setSelectedCar({...SelectedCar,makerName: item.label})}
+              fieldTemplate={this.renderField}
+              optionTemplate={this.renderOption}
+              headerTemplate={this.renderHeader}
+            />
+          </View> 
+        </View>  
+        <View style={styles.searchFieldContainer}>
+          <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+            <CustomPicker
+              placeholder={'Model'}
+              options={carMakerNames[0].models}
+                getLabel={item => item.modelName}            fieldTemplate={this.renderField}
+              optionTemplate={this.renderOption}
+              headerTemplate={this.renderHeader}
+            />
+          </View>
         </View>
+        <View style={styles.searchFieldContainer}>
+          <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+            <CustomPicker
+              placeholder={'Variant'}
+              options={carMakerNames}
+              getLabel={item => item.makerName}
+              fieldTemplate={this.renderField}
+              optionTemplate={this.renderOption}
+              headerTemplate={this.renderHeader}
+            />
+          </View>
+        </View>
+        <View style={styles.searchFieldContainer}>
+          <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+            <CustomPicker
+              placeholder={'Modification'}
+              options={carMakerNames}
+              getLabel={item => item.makerName}
+              fieldTemplate={this.renderField}
+              optionTemplate={this.renderOption}
+              headerTemplate={this.renderHeader}
+            />
+          </View>
+        </View>
+        <View style={styles.searchButtonContainer}>
+          <Button
+            title = "search"
+            color = 'black'
+            onPress = {()=>{Alert.alert('Please Confirm!!')}}
+          />     
+        </View>    
       </View>
+    </View>
     )
   }
- 
-  renderOption(settings) {
-    const { item, getLabel } = settings
-    return (
-      <View style={styles.optionContainer}>
-        <View style={styles.innerContainer}>
-          <View style={styles.optionCircle} />
-          <Text style={{fontSize: 22, alignSelf: 'flex-start' }}>{getLabel(item)}</Text>
-        </View>
+
+  renderHeader(){
+  return (
+    <View style={styles.headerFooterContainer}>
+      <Text style={{fontSize: 23, fontWeight: 'bold',}}>Select Car Maker</Text>
+    </View>
+  )
+  }
+  renderFooter(action){
+  return (
+    <TouchableOpacity
+      style={styles.headerFooterContainer}
+      onPress={() => {
+        Alert.alert('Footer', "You've click the footer!", [
+          {
+            text: 'OK'
+          },
+          {
+            text: 'Close Dropdown',
+            onPress: action.close.bind(this)
+          }
+        ])
+      }}
+    >
+      <Text>This is footer, click me!</Text>
+    </TouchableOpacity>
+  )
+  }
+  renderField(settings){
+  const { selectedItem, defaultText, getLabel, clear } = settings
+  return (
+    <View >
+      <View>
+        {!selectedItem && <Text style={{fontSize: 18, color: 'grey',marginLeft: 10}}>{defaultText}</Text>}
+        {selectedItem && (
+          <View style={styles.innerContainer}>
+            <TouchableOpacity style={styles.clearButton} onPress={clear}>
+              <Text style={{ color: '#fff' }}>Clear</Text>
+            </TouchableOpacity>
+            <Text style={styles.text}>
+              {getLabel(selectedItem)}
+            </Text>
+          </View>
+        )}
       </View>
-    )
+    </View>
+  )
+  }
+  renderOption(settings){
+  const { item, getLabel } = settings
+  return (
+    <View style={styles.optionContainer}>
+      <View style={styles.innerContainer}>
+        <View style={styles.optionCircle} />
+        <Text style={{fontSize: 22, alignSelf: 'flex-start' }}>{getLabel(item)}</Text>
+      </View>
+    </View>
+  )
   }
 }
+  
 
 const styles = StyleSheet.create({
   innerContainer: {

@@ -20,21 +20,17 @@ const Drawer = createDrawerNavigator();
 const Tab = createMaterialTopTabNavigator();
 
 const NavigationDrawerStructure = (props) => {
-  //Structure for the navigatin Drawer
-  const toggleDrawer = () => {
-    //Props to open/close the drawer
-    props.navigationProps.toggleDrawer();
-  }
+  const toggleDrawer = () => props.navigationProps.toggleDrawer()
   return (
    
       <TouchableOpacity onPress={() => toggleDrawer()}>
-        <View style={{flexDirection:'column',justifyContent: 'space-between',width: 25, height: 20, marginLeft: 15}}>
-          <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
-          <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
-          <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+        <View style={{width: 40, height: 40,justifyContent:'center'}}>
+          <View style={{flexDirection:'column',justifyContent: 'space-between',width: 25, height: 15, marginLeft: 15}}>
+            <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+            <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+            <View style={{height:3,backgroundColor:'white',borderBottomColor:'lightgrey',borderBottomWidth:1}}/>
+          </View>
         </View>
-          
-        
       </TouchableOpacity>
   )
 }
@@ -48,7 +44,7 @@ const getHeaderTitle = (route) => {
       return 'India Parts';
     case 'TabStack':
       return 'India Parts';
-  }
+    }
 };
 
 const TabStack = () => {
@@ -56,7 +52,7 @@ const TabStack = () => {
     <Tab.Navigator
       initialRouteName="HomeScreen"
       tabBarOptions={{
-        activeTintColor: 'darkgrey',
+        activeTintColor: 'black',
         inactiveTintColor: 'darkgrey',
         style: {
           backgroundColor: 'white',
@@ -66,8 +62,8 @@ const TabStack = () => {
           fontSize: 15,
         },
         indicatorStyle: {
-          borderBottomColor: 'darkblue',
-          borderBottomWidth: 1,
+          borderBottomColor: 'black',
+          borderBottomWidth: 2,
         },
       }}>
       <Tab.Screen
@@ -105,15 +101,14 @@ const HomeScreenStack = ({navigation}) => {
           headerTitle: getHeaderTitle(route),
           headerLeft: () => (
             <NavigationDrawerStructure
-              navigationProps={navigation}
-            />
+              navigationProps={navigation} />
           ),
           headerStyle: {
             backgroundColor: 'lightblue', //Set Header color
           },
-          headerTintColor: 'darkblue', //Set Header text color
+          headerTintColor: 'white', //Set Header text color
           headerTitleStyle: {
-            fontWeight: 'bold', //Set Header text style
+            fontWeight: '600', //Set Header text style
           },
         })}
       />
@@ -123,27 +118,25 @@ const HomeScreenStack = ({navigation}) => {
 
 const SettingScreenStack = ({navigation}) => {
   return (
-    <Stack.Navigator
-      initialRouteName="SecondPage"
-      screenOptions={{
-        headerLeft: () => (
-          <NavigationDrawerStructure navigationProps={navigation} />
-        ),
-        headerStyle: {
-          backgroundColor: '#f4511e', //Set Header color
-        },
-        headerTintColor: '#fff', //Set Header text color
-        headerTitleStyle: {
-          fontWeight: 'bold', //Set Header text style
-        },
-      }}>
+    <Stack.Navigator initialRouteName ="SettingScreen">
       <Stack.Screen
         name="SettingScreen"
         component={SettingScreen}
-        options={{
-          title: 'Setting', //Set Header Title
-        }}
-      />
+        options={() => ({
+          headerTitle: 'Setting Screen', //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerStructure 
+              navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: 'lightblue', //Set Header color
+          },
+          headerTintColor: 'darkblue', //Set Header text color
+          headerTitleStyle: {
+            fontWeight: '600', //Set Header text style
+          },
+        })}
+      />  
     </Stack.Navigator>
   );
 };
@@ -158,12 +151,12 @@ const Test2 = () => {
         }}>
         <Drawer.Screen
           name="HomeScreenStack"
-          options={{drawerLabel: 'Home Screen Option'}}
+          options={{drawerLabel: 'Products'}}
           component={HomeScreenStack}
         />
         <Drawer.Screen
           name="SettingScreenStack"
-          options={{drawerLabel: 'Setting Screen Option'}}
+          options={{drawerLabel: 'My orders'}}
           component={SettingScreenStack}
         />
       </Drawer.Navigator>
