@@ -1,19 +1,4 @@
 
-/*
-
-import * as React from 'react';
-import {Button, View, Text, SafeAreaView} from 'react-native';
-
-const HomeScreen = ({navigation}) => {
-  return (
-    <SafeAreaView style={{flex: 1}}>
-      
-    </SafeAreaView>
-  );
-};
-
-export default HomeScreen;
-*/
 import * as React from 'react';
 import { useState } from 'react';
 import {View, Text, Button, Alert, StyleSheet, TouchableOpacity, } from 'react-native';
@@ -49,7 +34,7 @@ const carMakerNames = [
         modelName: 'A3', 
         variants: [
           {index:'0', variantName: 'Diesel', modifications: ['2.0L']},
-          {index:'1', variantName: 'Petrol', modifications: ['1.4L','1.8']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.4L','1.8L']},
         ]
       },
       {
@@ -112,7 +97,128 @@ const carMakerNames = [
         variants: [
           {index:'0', variantName: 'Diesel', modifications: ['2.0L']},
         ]
-      }
+      },
+      {
+        index: '9',
+        modelName: 'A5 Cabriolet',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L']},
+        ]
+      },
+      {
+        index: '10',
+        modelName: 'A6 (4F2, C6)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L','2.0L Tdi','2.7L','2.7L Tdi Quattro','3.0L Tdi','3.0L Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['2.0 Tfsi','2.8L Fsi','3.0L','3.2L','3.2 Fsi Quattro','4.2L','4.2L Fsi Quattro','4.2L Quattro','5.0L RS6 Quattro']},
+        ]
+      },
+      {
+        index: '11',
+        modelName: 'A6 (4G2, C7)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L Tdi','3.0L Tdi','3.0L Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['2.0 Tfsi','2.8L Fsi Quattro','3.0L Tfsi Quattro']},
+        ]
+      },
+      {
+        index: '12',
+        modelName: 'A7',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['Default']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.6L Tdi','1.9L Tdi','2.0 Tdi','3.0 Quattro']},
+        ]
+      },
+      {
+        index: '13',
+        modelName: 'A8 (4E)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['3.0L Tdi Quattro','4.2 Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['2.8L Fsi','3.2L Fsi Quattro','3.7L Quattro','4.2 Quattro','4.2L Fsi Quattro','6.0L W12 Quattro']},
+        ]
+      },
+      {
+        index: '14',
+        modelName: 'A8 (4H)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['3.0L Tdi','3.0L Tdi Quattro','4.2L Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['3.0L Tfsi Quattro','4.0L Tfsi Quattro','4.2L Tfsi Quattro']},
+        ]
+      },
+      {
+        index: '15',
+        modelName: 'Q3',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L']},
+        ]
+      },
+      {
+        index: '16',
+        modelName: 'Q3 (8U)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L Tdi','2.0L Tdi']},
+          {index:'1', variantName: 'Petrol', modifications: ['1.4 Tfsi','2.0 Tfsi Quattro']},
+        ]
+      },
+      {
+        index: '17',
+        modelName: 'Q5 (8R)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L Tdi','2.0L Tdi Quattro','3.0L Tdi Quattro']},
+          {index:'1', variantName: 'Petrol', modifications: ['2.0 Hybrid Quattro','2.0 Tfsi Hybrid Quattro','2.0 Tfsi Quattro','3.0L Tfsi Quattro','3.2 Fsi Quattro']},
+        ]
+      },
+      {
+        index: '18',
+        modelName: 'Q7 (4L)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['3.0L Tdi','4.2L Tdi','6.0L Tdi']},
+          {index:'1', variantName: 'Petrol', modifications: ['3.0L Tfsi','3.6L Fsi','4.2L Fsi']},
+        ]
+      },
+      {
+        index: '19',
+        modelName: 'R8',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['4.2L Fsi Quattro','5.2L Fsi Quattro']},
+        ]
+      },
+      {
+        index: '20',
+        modelName: 'RS5',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['3.0L']},
+        ]
+      },
+      {
+        index: '21',
+        modelName: 'S5',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['3.0L']},
+        ]
+      },
+      {
+        index: '22',
+        modelName: 'TT',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['2.0L Tdi']},
+          {index:'1', variantName: 'Petrol', modifications: ['2.0 Tfsi']},
+        ]
+      },
+      {
+        index: '23',
+        modelName: 'TT (8J3)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['1.8L Tfsi','2.0L Tfsi','3.2L V6 Quattro']},
+        ]
+      },
+      {
+        index: '24',
+        modelName: 'TT (8N3)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['1.8L T/Quadro','3.2L Vr6 Quadro']},
+        ]
+      },
     ]
   },
   {
@@ -186,7 +292,87 @@ const carMakerNames = [
         variants: [
           {index:'0', variantName: 'Diesel', modifications: ['530d 3.0L']},
         ]
-      }
+      },
+      {
+        index: '9',
+        modelName: '6 (F06)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['640d 3.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['M6 4.4L']},
+        ]
+      },
+      {
+        index: '10',
+        modelName: '6 (F13)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['M6 4.4L']},
+        ]
+      },
+      {
+        index: '11',
+        modelName: '7 (F02)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['730d 3.0L','7L 3.0L Hybrid']},
+        ]
+      },
+      {
+        index: '12',
+        modelName: '7 (G12)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['730d 3.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['750Li 3.0L']},
+        ]
+      },
+      {
+        index: '13',
+        modelName: 'X1 (E84)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['20d 2.0L']},
+          {index:'1', variantName: 'Petrol', modifications: ['18i 2.0L']},
+        ]
+      },
+      {
+        index: '14',
+        modelName: 'X1 (F48)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['20dx 2.0L']},
+        ]
+      },
+      {
+        index: '15',
+        modelName: 'X3 (F25)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['20dx 2.0L','30dx 3.0L']},
+        ]  
+      },
+      {
+        index: '16',
+        modelName: 'X5 (E70)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['3.0L']},
+        ]
+      },
+      {
+        index: '17',
+        modelName: 'X5 M (F85)',
+        variants: [
+          {index:'0', variantName: 'Petrol', modifications: ['M 4.4L']},
+        ]
+      },
+      {
+        index: '18',
+        modelName: 'X6 (E71)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['30dx 3.0L']},
+        ]
+      },
+      {
+        index: '19',
+        modelName: 'X6 (F16)',
+        variants: [
+          {index:'0', variantName: 'Diesel', modifications: ['40dx 3.0L']},
+        ]
+      },
     ]    
   },
   {
@@ -263,19 +449,14 @@ const carMakerNames = [
   }
 ]
 
-const selectedCarInitialState = {
-  makerName: '',
-  makerNameIndex: '',
-  model: '',
-  variant: '',
-  modification: '',
-}
-
 export default class HomeScreen extends React.Component {
+  state = {
+    makerNameIndex: '0',
+    modelNameIndex: '0',
+    variantNameIndex: '0',
+  }
   render(){
     
-    //const [selectedCar,setSelectedCar] = useState(selectedCarInitialState);
-
     return (
       <View style={styles.mainContainer}>
       <View style={styles.mainSubContainer}>
@@ -290,11 +471,13 @@ export default class HomeScreen extends React.Component {
               placeholder={'Car Maker'}
               options={carMakerNames}
               modalAnimationType = 'slide'
-              getLabel={item => {selectedCarInitialState.makerNameIndex = item.index; return item.makerName}}
-              //onValueChange = {(item)=>setSelectedCar({...SelectedCar,makerName: item.label})}
+              getLabel={item => item.makerName}
               fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
               headerTemplate={this.renderHeader}
+              onValueChange={value => {
+                this.setState({makerNameIndex:value.index,})
+              }}
             />
           </View> 
         </View>  
@@ -302,11 +485,15 @@ export default class HomeScreen extends React.Component {
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
             <CustomPicker
               placeholder={'Model'}
-              options={carMakerNames[1].models}
+              options={carMakerNames[this.state.makerNameIndex].models}
+              modalAnimationType = 'slide'
               getLabel={item => item.modelName}            
               fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
               headerTemplate={this.renderHeader}
+              onValueChange={value => {
+                this.setState({modelNameIndex:value.index,})
+              }}
             />
           </View>
         </View>
@@ -314,11 +501,14 @@ export default class HomeScreen extends React.Component {
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
             <CustomPicker
               placeholder={'Variant'}
-              options={carMakerNames[1].models[1].variants}
+              options={carMakerNames[this.state.makerNameIndex].models[this.state.modelNameIndex].variants}
               getLabel={item => item.variantName}
               fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
               headerTemplate={this.renderHeader}
+              onValueChange={value => {
+                this.setState({variantNameIndex:value.index,})
+              }}
             />
           </View>
         </View>
@@ -326,7 +516,7 @@ export default class HomeScreen extends React.Component {
           <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
             <CustomPicker
               placeholder={'Modification'}
-              options={carMakerNames[1].models[1].variants[1].modifications}
+              options={carMakerNames[this.state.makerNameIndex].models[this.state.modelNameIndex].variants[this.state.variantNameIndex].modifications}
               getLabel={item => item}
               fieldTemplate={this.renderField}
               optionTemplate={this.renderOption}
@@ -345,7 +535,38 @@ export default class HomeScreen extends React.Component {
     </View>
     )
   }
-
+  
+  renderField(settings){
+    const { selectedItem, defaultText, getLabel, clear } = settings
+    return (
+      <View >
+        <View>
+          {!selectedItem && <Text style={{fontSize: 18, color: 'grey',marginLeft: 10}}>{defaultText}</Text>}
+          {selectedItem && (
+            <View style={styles.innerContainer}>
+              <TouchableOpacity style={styles.clearButton} onPress={clear}>
+                <Text style={{ color: '#fff' }}>Clear</Text>
+              </TouchableOpacity>
+              <Text style={styles.text}>
+                {getLabel(selectedItem)}
+              </Text>
+            </View>
+          )}
+        </View>
+      </View>
+    )
+  }
+  renderOption(settings){
+    const { item, getLabel } = settings
+    return (
+      <View style={styles.optionContainer}>
+        <View style={styles.innerContainer}>
+          <View style={styles.optionCircle} />
+          <Text style={{fontSize: 22, alignSelf: 'flex-start' }}>{getLabel(item)}</Text>
+        </View>
+      </View>
+    )
+    }
   renderHeader(){
   return (
     <View style={styles.headerFooterContainer}>
@@ -353,59 +574,7 @@ export default class HomeScreen extends React.Component {
     </View>
   )
   }
-  renderFooter(action){
-  return (
-    <TouchableOpacity
-      style={styles.headerFooterContainer}
-      onPress={() => {
-        Alert.alert('Footer', "You've click the footer!", [
-          {
-            text: 'OK'
-          },
-          {
-            text: 'Close Dropdown',
-            onPress: action.close.bind(this)
-          }
-        ])
-      }}
-    >
-      <Text>This is footer, click me!</Text>
-    </TouchableOpacity>
-  )
-  }
-  renderField(settings){
-  const { selectedItem, defaultText, getLabel, clear } = settings
-  return (
-    <View >
-      <View>
-        {!selectedItem && <Text style={{fontSize: 18, color: 'grey',marginLeft: 10}}>{defaultText}</Text>}
-        {selectedItem && (
-          <View style={styles.innerContainer}>
-            <TouchableOpacity style={styles.clearButton} onPress={clear}>
-              <Text style={{ color: '#fff' }}>Clear</Text>
-            </TouchableOpacity>
-            <Text style={styles.text}>
-              {getLabel(selectedItem)}
-            </Text>
-          </View>
-        )}
-      </View>
-    </View>
-  )
-  }
-  renderOption(settings){
-  const { item, getLabel } = settings
-  return (
-    <View style={styles.optionContainer}>
-      <View style={styles.innerContainer}>
-        <View style={styles.optionCircle} />
-        <Text style={{fontSize: 22, alignSelf: 'flex-start' }}>{getLabel(item)}</Text>
-      </View>
-    </View>
-  )
-  }
 }
-  
 
 const styles = StyleSheet.create({
   innerContainer: {
