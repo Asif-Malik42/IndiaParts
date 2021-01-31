@@ -1,6 +1,5 @@
 
 import * as React from 'react';
-import { useState } from 'react';
 import {View, Text, Button, Alert, StyleSheet, TouchableOpacity, } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker'
  

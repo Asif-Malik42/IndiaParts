@@ -1,8 +1,6 @@
-// Tab View inside Navigation Drawer
-// https://aboutreact.com/tab-view-inside-navigation-drawer-sidebar-with-react-navigation/
 
 import * as React from 'react';
-import {Button, View, Text, SafeAreaView} from 'react-native';
+import { View, Text, SafeAreaView} from 'react-native';
 
 const ExploreScreen = ({navigation}) => {
   return (

@@ -2,7 +2,7 @@
 // https://aboutreact.com/tab-view-inside-navigation-drawer-sidebar-with-react-navigation/
 
 import * as React from 'react';
-import {Button, View, Text, SafeAreaView} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
 export default class SettingScreen extends React.Component {
   render() {
